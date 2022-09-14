@@ -1,15 +1,18 @@
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+# Manually install brew first.
+brew tap homebrew/cask
+brew tap homebrew/cask-fonts
 
+# Start downloading apps in another terminal.
 open -a terminal.app ./download_apps.sh
 
+# Download terminal tools.
 brew install --cask font-meslo-lg-nerd-font
 brew install python iterm2 neovim tmux fish gh lazygit ripgrep fd
 
-echo /usr/local/bin/fish | sudo tee -a /etc/shells
-chsh -s /usr/local/bin/fish
-fish
-fisher install IlanCosman/tide@v5
+# Change default shell to fish.
+open -a terminal.app ./configure_fish.sh
 
+# Download dotfiles and configure nvim.
 mkdir ~/repo && ~/repo
 git clone https://github.com/donhn/dotfiles.git 
 git clone https://github.com/NvChad/NvChad ~/.config/nvim --depth 1
