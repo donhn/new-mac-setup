@@ -1,6 +1,7 @@
 # Manually install brew first.
 brew tap homebrew/cask
 brew tap homebrew/cask-fonts
+brew tap homebrew/homebrew-cask-drivers
 
 # Start downloading apps in another terminal.
 open -a terminal.app ./download_apps.sh
